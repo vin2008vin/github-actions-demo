@@ -7,11 +7,11 @@ env:
  cloud: google-cloud
 
 jobs:
- greeting_job:
+  greeting_job:
    runs-on: ubuntu-latest
    env:
-     Greeting: Hello
-    steps:
+    Greeting: Hello
+   steps:
     - name: "says hello vinay its monday"
       run: echo "$Greeting $Firstname is using $cloud"
       env:
