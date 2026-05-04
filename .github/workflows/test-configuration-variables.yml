@@ -1,4 +1,4 @@
-name: Testing wordflow varibles
+name: Testing configuration workflow varibles
 
 on:
  workflow_dispatch
