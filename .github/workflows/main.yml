@@ -2,7 +2,7 @@ name: OIDC demo
 
 on:
  push:
-  branches: ["main"]
+  branches: ["master"]
 
 permissions:
  id-token: write
