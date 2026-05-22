@@ -1,0 +1,14 @@
+#! /bin/bash
+
+set -e #breaks the line when its failes.
+set -x # trace for debug
+set -u undefined variables
+
+name="vinay"
+
+ls -l
+
+echo "hello world $name"
+echo "hello again"
+
+  
