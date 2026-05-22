@@ -1,0 +1,17 @@
+name: sample github actions demo
+
+on:
+ push: 
+  branches: ['master']
+
+jobs:
+  build:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: "build job is running"
+       uses: actions/checkout@v3
+     - run: echo "hello worrld how are you"
+       
+  
+   
