@@ -30,7 +30,7 @@ jobs:
        uses: aws-actions/configure-aws-credentials@v6
        with:
          aws-regions: us-west-2
-         role-to-assume: "${{secrets.oidc_token-github}}"
+         role-to-assume: "${{secrets.oidc_token_github}}"
 
      - name: initialise project and view terraform plann
        run: |
