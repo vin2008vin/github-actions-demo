@@ -30,7 +30,7 @@ jobs:
        uses: aws-actions/configure-aws-credentials@v6
        with:
          aws-regions: us-west-2
-         role-to-assume: arn:aws-cn:iam::123456789100:role/my-github-actions-role 
+         role-to-assume: "${{secrets.oidc_token-github}}"
 
      - name: initialise project and view terraform plann
        run: |
