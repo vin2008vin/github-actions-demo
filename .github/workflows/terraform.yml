@@ -34,10 +34,13 @@ jobs:
          
          
 
-     - name: initialise project and view terraform plann
-       run: |
-        terraform fmt
-        terraform init
+     - name: Setup Terraform with specified version on the runner
+       uses: hashicorp/setup-terraform@v3
+       with:
+         terraform_version: 1.4.1
+         run: |
+          terraform fmt
+          terraform init
 
         
          
