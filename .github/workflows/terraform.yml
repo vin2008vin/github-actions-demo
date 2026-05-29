@@ -1,0 +1,55 @@
+name: terraform automation to create s3 bucket
+
+on:
+ pull_request:
+   branches:
+    - main
+ push:    
+   paths: 
+    - 'terraform/**'
+  
+ workflow_dispatch:
+ 
+ 
+
+permissions:
+ id-token: write
+ contents: write
+
+jobs:
+  terraform_s3_builb:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: checkout repository
+       uses: actions/checkout@v5
+       with:
+         fetch-depth: 0
+
+     - name: configure the aws credentials
+       uses: aws-actions/configure-aws-credentials@v6
+       with:
+         aws-regions: us-west-2
+         role-to-assume: arn:aws-cn:iam::123456789100:role/my-github-actions-role 
+
+     - name: initialise project and view terraform plann
+       run: |
+        cd terraform
+        terraform fmt
+        terraform init
+
+
+        
+         
+
+
+  
+
+  
+
+  
+
+ 
+
+
+   
