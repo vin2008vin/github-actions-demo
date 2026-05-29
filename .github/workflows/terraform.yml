@@ -36,7 +36,6 @@ jobs:
 
      - name: initialise project and view terraform plann
        run: |
-        cd terraform
         terraform fmt
         terraform init
 
