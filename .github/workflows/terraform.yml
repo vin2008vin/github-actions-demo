@@ -6,7 +6,7 @@ on:
     - main
  push:    
    paths: 
-    - 'terraform/**'
+    - 'main.tf'
   
  workflow_dispatch:
  
