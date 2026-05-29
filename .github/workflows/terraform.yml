@@ -21,24 +21,15 @@ jobs:
    runs-on: ubuntu-latest
 
    steps:
-     - name: checkout repository
+     - name: checkout source
        uses: actions/checkout@v4
-       with:
-         fetch-depth: 0
-
-     - name: configure the aws credentials
+     - name: configuring aws credentials using OIDC
        uses: aws-actions/configure-aws-credentials@v4.1.0
        with:
          aws-region: ap-south-1
-         role-to-assume: ${{secrets.oidc_token_github}}
-         
-         
-
-     - name: initialise project and view terraform plann
-       run: |
-        cd terraform
-        terraform fmt
-        terraform init
+         role-to-assume: ${{ secrets.OIDC_TOKEN_GITHUB }}
+     - name: test aws credentals
+       run: aws sts get-caller-identity        
 
 
         
