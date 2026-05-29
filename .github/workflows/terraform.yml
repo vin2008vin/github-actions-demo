@@ -6,7 +6,7 @@ on:
     - main
  push:    
    paths: 
-    - 'main.tf'
+    - 'terraform/**'
   
  workflow_dispatch:
  
@@ -19,6 +19,10 @@ permissions:
 jobs:
   terraform_s3_builb:
    runs-on: ubuntu-latest
+   defaults:
+     run:
+       shell: bash
+       working-directory: /terraform
 
    steps:
      - name: checkout repository
@@ -38,9 +42,20 @@ jobs:
        uses: hashicorp/setup-terraform@v3
        with:
          terraform_version: 1.4.1
-         run: |
-          terraform fmt
-          terraform init
+
+     - name: Terraform format
+       id: fmt
+       run: terraform fmt -check
+    
+     - name: Terraform validate
+       id: validate
+       run: terraform validate
+ 
+     - name: Terraform plan
+       id: plan
+       if: github.event_name == 'pull_request'
+       run: terraform plan -no-color -input=false
+       continue-on-error: true
 
         
          
