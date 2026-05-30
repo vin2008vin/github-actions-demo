@@ -3,7 +3,7 @@ region = "ap-south-1"
 }
 
 data "aws_s3_bucket" "existing_bucket" {
-bucket = "test-bucket"
+bucket = "test-bucket-9986660009"
 }
 
 output "bucket_arn" {
