@@ -1,18 +1,17 @@
-terraform {
- required_providers {
-   aws = {
-     source = "hashicorp/aws"
-   }
- }
-}
-provider "aws" {
- region = "ap-south-1"
+provide "aws" {
+region = ap-south-1"
 }
 
-resource "aws_instance" "test_instance" {
- ami           = "ami-00e801948462f718a"
- instance_type = "t2.micro"
- tags = {
-   Name = "test_instance"
- }
+data "aws_s3_bucket" "existing_bucket" {
+bucket = "test-bucket"
+}
+
+output "bucket_arn" {
+description = " The amazon resource name of the bucket "
+value = data.aws_s3_bucket.existing_bucket.arn
+}
+
+output "bucket_domain_name" {
+description = " the bucket domain name"
+value = data.aws_s3_bucket.existing_bucket.bucket_domain_name
 }
