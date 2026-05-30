@@ -2,7 +2,7 @@ name: 'terraform'
 
 on:
  push:
-  branches: [ "master" ]
+  branches: [ "m" ]
  pull_request:
    
 permissions: 
@@ -26,8 +26,8 @@ jobs:
       - id: auth
         uses: google-github-actions/auth@v2.0.0
         with:
-         workload_identity_provider: 'projects/553071091343/locations/global/workloadIdentityPools/github-action-pool/providers/github-actions'
-         service_account: 'github-actions-wif-sa@project-b6ac39af-845d-4183-94e.iam.gserviceaccount.com'
+         workload_identity_provider: ''
+         service_account: ''
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1  
