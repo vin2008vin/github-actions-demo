@@ -1,5 +1,5 @@
 provide "aws" {
-region = ap-south-1"
+region = "ap-south-1"
 }
 
 data "aws_s3_bucket" "existing_bucket" {
