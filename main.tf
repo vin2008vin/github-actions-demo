@@ -1,7 +1,17 @@
-resource "google_storage_bucket" "my_bucket" {
- name = "bkt-demo-000"
- location = "asia-south1"
- project = ""
- force_destory = true
- public_access_prevention = "enforced"
+provider "aws" {
+  region     = "ap-south-1"
 }
+
+
+resource "aws_instance" "ourfirst" {
+  ami           = "ami-0447a12f28fddb066"
+  instance_type = "t2.micro"
+}
+/*
+run
+terraform validate
+terraform plan
+terraform apply
+and after checking the instance on aws dashboard
+terraform destroy
+*/
