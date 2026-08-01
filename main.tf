@@ -14,4 +14,5 @@ terraform plan
 terraform apply
 and after checking the instance on aws dashboard
 terraform destroy
+adding
 */
